@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Page for You ❤️</title>
+    <style>
+        /* Body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        /* Video container to hold all videos */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Center box styling */
+        .center-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .center-box h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffcc00;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffd633;
+        }
+
+        /* Hidden elements */
+        .hidden {
+            display: none;
+        }
+
+        #message {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #00ffcc;
+        }
+
+        #next-btn {
+            margin-top: 15px;
+            background-color: #ff0066;
+            color: white;
+        }
+
+        #next-btn:hover {
+            background-color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video src="New folder\videos\video3.mp4" autoplay muted loop></video>
+        <video src="New folder\videos\video2.mp4" autoplay muted loop></video>
+        <video src="New folder\videos\video3.mp4" autoplay muted loop></video>
+        <video src="New folder\videos\video4.mp4" autoplay muted loop></video>
+        <video src="New folder\videos\video5.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="center-box">
+        <h1>Make a Wish ✨</h1>
+        <textarea id="wish" placeholder="Type your wish here..."></textarea>
+        <button id="submit-btn">Submit</button>
+        <p id="message" class="hidden"></p>
+        <a href="last.html">
+            <button id="next-btn" class="hidden">Next</button>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            const wish = document.getElementById('wish').value.trim();
+            const message = document.getElementById('message');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (wish) {
+                message.textContent = `Thank you for your beautiful wish! 💖 We hope all your dreams come true!`;
+                message.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+            } else {
+                message.textContent = 'Please type your wish first! 😊';
+                message.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
